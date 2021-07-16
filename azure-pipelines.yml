@@ -19,5 +19,5 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    echo this is a multiline
-    sentence.
+    echo 'this is a multiline
+    sentence.'
