@@ -9,47 +9,83 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
-- job: job1
-  steps:
-  - script: echo Job1 Hello, world!
-    displayName: 'script1 - Run a one-line script'
+stages:
+- stage: Build
+  jobs:
+  - job: job1
+    steps:
+    - script: echo build Job1 Hello, world!
+      displayName: 'build script1 - Run a one-line script'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-    displayName: 'script2 - Run a multi-line script'
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+      displayName: 'build script2 - Run a multi-line script'
 
-  - script: |
-      echo 'script3 - this is a multiline
-      sentence.'
+    - script: |
+        echo 'build script3 - this is a multiline
+        sentence.'
 
-- job: job2
-  steps:
-  - script: echo script1 - his is Job2
-    displayName: 'job2 script'
+  - job: job2
+    steps:
+    - script: echo script1 - his is Job2
+      displayName: 'job2 script'
 
-  - script: |
-      echo Script2 - Add other tasks to build, test, and deploy your project.
-    displayName: 'Run a multi-line script'
+    - script: |
+        echo Script2 - Add other tasks to build, test, and deploy your project.
+      displayName: 'Run a multi-line script'
 
-  - script: |
-      echo 'script3 - this is a multiline
-      sentence.'
+    - script: |
+        echo 'script3 - this is a multiline
+        sentence.'
 
-- job: job3
-  displayName: this is job3
-  dependsOn: job1
-  steps:
-  - script: echo script1 - his is Job2
-    displayName: 'Run a one-line script'
+- stage: test
+  jobs:
+  - job: job3
+    displayName: testing - this is job3
+    dependsOn: job1
+    steps:
+    - script: echo testing - script1 - his is Job2
+      displayName: 'testing - Run a one-line script'
 
-  - script: |
-      echo Script2 - Add other tasks to build, test, and deploy your project.
-    displayName: 'Run a multi-line script'
+    - script: |
+        echo testing - Script2 - Add other tasks to build, test, and deploy your project.
+      displayName: 'testing - Run a multi-line script'
 
-  - script: |
-      echo 'script3 - this is a multiline
-      sentence.'
+    - script: |
+        echo 'script3 - this is a multiline
+        sentence.'
+
+- stage: deploy
+  jobs:
+  - job: job1
+    steps:
+    - script: echo deploy - Job1 Hello, world!
+      displayName: 'deploy - script1 - Run a one-line script'
+
+    - script: |
+        echo deploy - Add other tasks to build, test, and deploy your project.
+      displayName: 'deploy - script2 - Run a multi-line script'
+
+    - script: |
+        echo 'deploy - script3 - this is a multiline
+        sentence.'
+
+  - job: job2
+    steps:
+    - script: echo deploy - script1 - his is Job2
+      displayName: 'deploy - job2 script'
+
+    - script: |
+        echo deploy - Script2 - Add other tasks to build, test, and deploy your project.
+      displayName: 'deploy - Run a multi-line script'
+
+    - script: |
+        echo 'deploy - script3 - this is a multiline
+        sentence.'
+
+
+
+
 
 # PodConfig:
 #   port: 8080
@@ -62,6 +98,9 @@ jobs:
 # - description: this is the second element
 #   name: jim
 #   age: 24
+
+#this is sanother syntax to make a list
+#MyList2: ['string 1', 'string 2', 'string 3']
 
 # #beginining of a K8s YAML
 # ApiVersion: v1 
