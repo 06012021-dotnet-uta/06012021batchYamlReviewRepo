@@ -93,7 +93,7 @@ stages:
   - job: CopyingInLastStage
     steps:
     - task: CopyFiles@2
-      displayName: 'copying from one dir to another'
+      displayName: copyingfromonedirtoanother
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: |
