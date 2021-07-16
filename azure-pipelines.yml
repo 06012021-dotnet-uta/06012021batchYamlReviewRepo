@@ -87,7 +87,7 @@ stages:
         echo 'deploy - script3 - this is a multiline
         sentence.'
 
-- stage: copying the DefualtWorkingDirectory stuff
+- stage: copying_the_DefualtWorkingDirectory_stuff
   dependsOn: deploy
   jobs:
   - job: CopyingInLastStage
