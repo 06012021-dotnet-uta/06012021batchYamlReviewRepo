@@ -21,3 +21,41 @@ steps:
 - script: |
     echo 'this is a multiline
     sentence.'
+
+
+# PodConfig:
+#   port: 8080
+#   retries: 3
+
+# MyList:
+# - description: this is my list
+#   name: mark
+#   age: 42
+# - description: this is the second element
+#   name: jim
+#   age: 24
+
+# #beginining of a K8s YAML
+# ApiVersion: v1 
+# Kind: Pod
+# #object 
+# MetaData: 
+#   Name: nginx	#property 
+#   #property that is an object
+#   Labels:
+#     App: nginx	#property of the property 
+# #another object 
+# Spec:
+#     #a list 
+#   Containers:
+#   - name: nginx –container
+#     Image: nginx
+#     #a list of one item 
+#     Ports:
+#     - containerPort: 80
+#     VolumeMounts: 80
+#     ColumeMounts:
+#     - name: nginx-vol
+#       MountPath: /usr/nginx/html
+#     - name: otherThing
+#       MountPath: /usr/otherthing/html 
