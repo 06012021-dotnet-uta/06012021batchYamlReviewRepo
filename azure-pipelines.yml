@@ -17,8 +17,8 @@ stages:
     - script: echo build Job1 Hello, world!
       displayName: 'build script1 - Run a one-line script'
 
-    - bash: $(Agent.JobStatus)
-    - bash: $(Agent.Name)
+    - bash: echo $(Agent.JobStatus)
+    - bash: echo $(Agent.Name)
 
     - script: |
         echo 'build script3 - this is a multiline
