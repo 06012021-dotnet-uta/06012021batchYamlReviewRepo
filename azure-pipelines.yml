@@ -42,7 +42,7 @@ stages:
   jobs:
   - job: job3
     displayName: testing - this is job3
-    dependsOn: job1
+    # dependsOn: job1
     steps:
     - script: echo testing - script1 - his is Job2
       displayName: 'testing - Run a one-line script'
