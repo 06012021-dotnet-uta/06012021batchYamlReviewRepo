@@ -52,6 +52,7 @@ stages:
       displayName: 'testing - Run a multi-line script'
 
     - bash: ls -R $(Build.ArtifactStagingDirectory)
+      displayName: printing the ArtifactStagingDirectory
     
     - script: |
         echo 'script3 - this is a multiline
