@@ -17,7 +17,6 @@ jobs:
 
   - script: |
       echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
     displayName: 'script2 - Run a multi-line script'
 
   - script: |
@@ -27,17 +26,30 @@ jobs:
 - job: job2
   steps:
   - script: echo script1 - his is Job2
-    displayName: 'Run a one-line script'
+    displayName: 'job2 script'
 
   - script: |
-      echo Sdcript2 - Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
+      echo Script2 - Add other tasks to build, test, and deploy your project.
     displayName: 'Run a multi-line script'
 
   - script: |
       echo 'script3 - this is a multiline
       sentence.'
 
+- job: job3
+  displayName: this is job3
+  dependsOn: job1
+  steps:
+  - script: echo script1 - his is Job2
+    displayName: 'Run a one-line script'
+
+  - script: |
+      echo Script2 - Add other tasks to build, test, and deploy your project.
+    displayName: 'Run a multi-line script'
+
+  - script: |
+      echo 'script3 - this is a multiline
+      sentence.'
 
 # PodConfig:
 #   port: 8080
