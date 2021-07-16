@@ -39,6 +39,7 @@ stages:
         sentence.'
 
 - stage: test
+  dependsOn: Build
   jobs:
   - job: job3
     displayName: testing - this is job3
@@ -56,6 +57,7 @@ stages:
         sentence.'
 
 - stage: deploy
+  dependsOn: Build
   jobs:
   - job: job1
     steps:
