@@ -17,9 +17,8 @@ stages:
     - script: echo build Job1 Hello, world!
       displayName: 'build script1 - Run a one-line script'
 
-    - script: |
-        echo Add other tasks to build, test, and deploy your project.
-      displayName: 'build script2 - Run a multi-line script'
+    - bash: $(Agent.JobStatus)
+    - bash: $(Agent.Name)
 
     - script: |
         echo 'build script3 - this is a multiline
@@ -52,6 +51,8 @@ stages:
         echo testing - Script2 - Add other tasks to build, test, and deploy your project.
       displayName: 'testing - Run a multi-line script'
 
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
+    
     - script: |
         echo 'script3 - this is a multiline
         sentence.'
